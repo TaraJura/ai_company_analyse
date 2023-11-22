@@ -1,0 +1,18 @@
+default: &default
+  adapter: postgresql
+  encoding: utf8
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  username: novakj
+  password: password
+
+development:
+  <<: *default
+  database: techtools_development
+
+test:
+  <<: *default
+  database: techtools_test
+
+production:
+  <<: *default
+  database: techtools_production
