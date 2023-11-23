@@ -17,6 +17,9 @@ gem "bootsnap", require: false
 gem 'html2haml'
 gem 'haml'
 gem 'devise'
+gem 'typhoeus'
+gem 'rexml'
+gem 'ruby-openai'
 
 group :development do
   gem "web-console"
