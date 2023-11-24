@@ -1,5 +1,6 @@
-.container
-  = form_with url: '/analyze_company', method: :post do
-    .input-group
-      = text_field_tag :ico, nil, class: 'form-control', 'aria-describedby': 'button-addon2', 'aria-label': "Recipient's username", placeholder: 'IČO', required: true, pattern: '[0-9]{8}'
-      = button_tag 'Spusť Analýzu', id: 'button-addon2', class: 'btn btn-outline-secondary #custom-button-style fw-bolder', type: 'submit'
+.container-background
+  .d-flex.justify-content-center.mt-5
+    = form_with url: '/company/analyze_company', method: :post, class: 'w-50' do
+      .input-group
+        = text_field_tag :ico, nil, class: 'form-control', 'aria-describedby' => 'button-addon2', 'aria-label' => "Recipient's username", placeholder: 'IČO', required: true, pattern: '[0-9]{8}'
+        = button_tag 'Spusť Analýzu', id: 'button-addon2', class: 'btn btn-outline-secondary fw-bolder', type: 'submit'
