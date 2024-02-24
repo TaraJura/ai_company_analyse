@@ -6,12 +6,12 @@ gem "rails", "~> 7.1.1"
 gem "sprockets-rails"
 gem 'bootstrap', '~> 5.2.2'
 gem "pg"
-gem "puma", ">= 5.0"
+gem "puma"
 gem "importmap-rails"
 gem "turbo-rails"
 gem "stimulus-rails"
 gem "jbuilder"
-gem "redis", ">= 4.0.1"
+gem "redis"
 gem "tzinfo-data", platforms: %i[ windows jruby ]
 gem "bootsnap", require: false
 gem 'html2haml'

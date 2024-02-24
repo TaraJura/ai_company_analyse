@@ -1,25 +1,26 @@
-# README
+TechTools is a web application designed to analyze and provide insights into companies based on their registration number (IČO). It utilizes external APIs to fetch data and presents analyzed results to the users. This application is built with Ruby on Rails and integrates with Bootstrap for styling and Hotwire for dynamic updates without full page reloads.
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Features
 
-Things you may want to cover:
+- Company analysis based on IČO (Identification Number)
+- Real-time data fetching from Ares
+- Responsive design for desktop and mobile devices
+- User authentication system for accessing analysis features
 
-* Ruby version
+## Prerequisites
 
-* System dependencies
+Before you begin, ensure you have met the following requirements:
 
-* Configuration
+- Ruby version 3.2.2 or higher
+- Rails version 7.1.2 or higher
+- PostgreSQL for the database
+- Node.js and Yarn for JavaScript package management
 
-* Database creation
+## Installation
 
-* Database initialization
+To install TechTools, follow these steps:
 
-* How to run the test suite
+1. Clone the repository:
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-# ai_company_analyse
+```bash
+git clone https://github.com/yourusername/techtools.git
