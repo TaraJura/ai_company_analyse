@@ -7,17 +7,5 @@
       %span.navbar-toggler-icon
     #navbarNavAltMarkup.collapse.navbar-collapse
       .navbar-nav
-        = link_to 'Chat-bot', root_path, class: 'nav-link text-light nav-link ms-2'
-        = link_to 'Isdoc-READER', root_path, class: 'nav-link text-light nav-link ms-2'
-        = link_to 'Uložiště', root_path, class: 'nav-link text-light nav-link ms-2'
-        = link_to 'Veřejné-uložiště', root_path, class: 'nav-link text-light nav-link ms-2'
-        = link_to 'AI-Scan-firmy', company_index_path, class: 'nav-link text-light nav-link ms-2'
-    - if user_signed_in?
-      .d-flex.align-items-center
-        = link_to 'Profile', edit_user_registration_path, class: 'btn btn-warning me-2'
-        = button_to 'Logout', destroy_user_session_path, method: :delete, class: 'btn btn-outline-light me-2'
-    - else
-      .d-flex.align-items-center
-        = link_to 'Login', new_user_session_path, class: 'btn btn-outline-light me-2'
-        = link_to 'Register', new_user_registration_path, class: 'btn btn-warning me-2'
-
+        = link_to 'AI Company scan', company_index_path, class: 'nav-link text-light nav-link ms-2'
+    = render 'layouts/login'

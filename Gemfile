@@ -19,6 +19,7 @@ gem 'haml'
 gem 'devise'
 gem 'typhoeus'
 gem 'rexml'
+gem 'rack-cors'
 gem 'ruby-openai'
 
 group :development do

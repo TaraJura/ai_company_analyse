@@ -3,10 +3,14 @@ Rails.application.routes.draw do
   get "up" => "rails/health#show", as: :rails_health_check
 
   # Defines the root path route ("/")
-  root "techtools#index"
+  root "company#index"
 
   namespace :company do
     get 'index'
     post 'analyze_company'
+  end
+
+  namespace :extension do
+    post 'receiver'
   end
 end

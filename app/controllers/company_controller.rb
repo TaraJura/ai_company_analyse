@@ -6,8 +6,8 @@ class CompanyController < ApplicationController
 
   def analyze_company
     Company.create(ico: params[:ico])
-    analysed_data = Ares.ai_analysed_data('06370772')
-    
+    analysed_data = Ares.new.ai_analysed_data(params[:ico])
+
     render plain: analysed_data
   end
 end
