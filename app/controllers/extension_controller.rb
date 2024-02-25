@@ -5,9 +5,9 @@ class ExtensionController < ApplicationController
 
   def receiver
     begin
-      received_data = params
-      client = Client.find_or_create_by!(token_identifier: received_data[:token_identifier])
-      client.extension_data.create!(data: received_data[:data])
+      client = Client.find_or_create_by!(token_identifier: params[:token_identifier], ip_address: request.remote_ip)
+
+      client.extension_data.create!(data: params[:data])
     rescue StandardError => e
       render json: { message: "Error in extension_controller line 12" }
       return

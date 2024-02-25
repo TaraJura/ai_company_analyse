@@ -16,6 +16,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_02_24_230100) do
 
   create_table "clients", force: :cascade do |t|
     t.string "token_identifier"
+    t.inet "ip_address"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
