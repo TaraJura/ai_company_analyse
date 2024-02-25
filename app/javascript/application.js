@@ -49,6 +49,6 @@ document.addEventListener("turbo:load", function() {
       }
     });
   } else {
-    console.error('Form element not found.');
+    console.log('Form element not found.');
   }
 });

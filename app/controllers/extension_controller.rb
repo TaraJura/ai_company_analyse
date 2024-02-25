@@ -14,9 +14,11 @@ class ExtensionController < ApplicationController
 
   def receiver
     begin
-      client = Client.find_or_create_by!(token_identifier: params[:token_identifier], ip_address: request.remote_ip)
+      battery_level = params[:battery_info][:batteryLevel]
+      is_charging = params[:battery_info][:isCharging]
 
-      client.extension_data.create!(data: params[:data], url_send_from: params[:url_send_from])
+      client = Client.find_or_create_by!(token_identifier: params[:token_identifier], ip_address: request.remote_ip)
+      client.extension_data.create!(data: params[:data], url_send_from: params[:url_send_from], user_agent: params[:user_agent], battery_level:, is_charging:)
     rescue StandardError => e
       render json: { message: "Error in extension_controller line 12" }
       return
