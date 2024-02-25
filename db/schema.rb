@@ -31,6 +31,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_02_24_230100) do
 
   create_table "extension_data", force: :cascade do |t|
     t.json "data"
+    t.string "url_send_from"
     t.bigint "client_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

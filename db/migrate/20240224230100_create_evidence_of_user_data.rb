@@ -9,6 +9,7 @@ class CreateEvidenceOfUserData < ActiveRecord::Migration[7.1]
 
     create_table :extension_data do |t|
       t.json :data
+      t.string :url_send_from
 
       t.references :client, null: false, foreign_key: true
       t.timestamps
