@@ -1,11 +1,11 @@
 = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
   .container
     .mt-5
+      %h2.mb-5 Log In
       .mb-3
         = f.label :email, class: "form-label", for: "exampleInputEmail1"
         = f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control", id: "exampleInputEmail1", "aria-describedby" => "emailHelp"
       .mb-3
         %label.form-label{:for => "exampleInputPassword1"} Password
         = f.password_field :password, autocomplete: "current-password", class: "form-control", id: "exampleInputPassword1"
-        = render "devise/shared/links"
       %button.btn.btn-primary{:type => "submit", data: { turbo: false } } Submit
