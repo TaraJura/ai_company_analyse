@@ -10,13 +10,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_02_25_052851) do
+ActiveRecord::Schema[7.1].define(version: 2024_02_25_211450) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "clients", force: :cascade do |t|
     t.string "token_identifier"
-    t.inet "ip_address"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -38,6 +37,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_02_25_052851) do
     t.string "battery_level"
     t.boolean "is_charging"
     t.string "user_agent"
+    t.inet "ip_address"
     t.index ["client_id"], name: "index_extension_data_on_client_id"
   end
 

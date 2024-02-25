@@ -16,21 +16,23 @@
               %span  
                 = @extension_client.extension_data.count
             %li.list-group-item
-              %strong IP address:
+              %strong IP addresses used:
               %span 
-                = @extension_client.ip_address.to_s
+                %a.btn.btn-link.d-inline{"role" => "button", "data-bs-toggle" => "modal", "data-bs-target" => "#exampleModal", style: "color: blue; text-decoration: underline; padding: 0; margin: 0; vertical-align: baseline;"}
+                  = @ip_addresses_used.count
             %li.list-group-item
               %strong registration date:
               %span 
                 = @extension_client.created_at.strftime("%Y-%m-%d %H:%M:%S")
     .col-md-6
       .card.mb-3
-        .card-header Section 2
+        .card-header Domain scan
         .card-body
           %ul.list-group.list-group-flush
             %li.list-group-item
-              %strong Key A:
-              %span Value A
+              %strong Unique domains scanned:
+              %span 
+                = @unique_domains_scanned
             %li.list-group-item
               %strong Key B:
               %span Value B
@@ -70,3 +72,30 @@
               %strong Key γ:
               %span Value γ
 
+
+
+-######################################################################################################################### Modal
+#exampleModal.modal.fade{tabindex: "-1", "aria-labelledby": "exampleModalLabel", "aria-hidden": "true"}
+  .modal-dialog
+    .modal-content
+      .modal-header
+        %h5#exampleModalLabel.modal-title Ip Addresses Used
+        %button.btn-close{type: "button", "data-bs-dismiss": "modal", "aria-label": "Close"}
+      .modal-body
+        %table.table
+          %thead
+            %tr
+              %th IP Address
+              %th Location Info
+          %tbody
+            - @locations.each do |location|
+              %tr
+                %td= location["ip_address"]
+                %td
+                  - if location["error"]
+                    = location["error"]
+                  - else
+                    = "#{location['city']}, #{location['region']}, #{location['country']}"
+      .modal-footer
+        %button.btn.btn-secondary{type: "button", "data-bs-dismiss": "modal"} Close
+        %button.btn.btn-primary{type: "button"} Save changes
