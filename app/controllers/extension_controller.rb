@@ -3,6 +3,11 @@
 class ExtensionController < ApplicationController
   skip_before_action :verify_authenticity_token
 
+  def index
+    @extension_client = current_user.client
+
+  end
+
   def receiver
     begin
       client = Client.find_or_create_by!(token_identifier: params[:token_identifier], ip_address: request.remote_ip)

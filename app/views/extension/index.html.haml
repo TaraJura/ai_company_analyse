@@ -1,0 +1,71 @@
+.container
+  %h1.text-center.mb-4 Extension Home
+
+  .row
+    .col-md-6
+      .card.mb-3
+        .card-header Extension Overview
+        .card-body
+          %ul.list-group.list-group-flush
+            %li.list-group-item
+              %strong User ID:
+              %span 
+                = @extension_client.token_identifier
+            %li.list-group-item
+              %strong Received data blocks:
+              %span  
+                = @extension_client.extension_data.count
+            %li.list-group-item
+              %strong registered IP address:
+              %span 
+                = @extension_client.ip_address.to_s
+            %li.list-group-item
+              %strong registration date:
+              %span 
+                = @extension_client.created_at.strftime("%Y-%m-%d %H:%M:%S")
+    .col-md-6
+      .card.mb-3
+        .card-header Section 2
+        .card-body
+          %ul.list-group.list-group-flush
+            %li.list-group-item
+              %strong Key A:
+              %span Value A
+            %li.list-group-item
+              %strong Key B:
+              %span Value B
+            %li.list-group-item
+              %strong Key C:
+              %span Value C
+            %li.list-group-item
+              %strong Key D:
+              %span Value D
+  .row
+    .col-md-6
+      .card.mb-3
+        .card-header Section 3
+        .card-body
+          %ul.list-group.list-group-flush
+            %li.list-group-item
+              %strong Key X:
+              %span Value X
+            %li.list-group-item
+              %strong Key Y:
+              %span Value Y
+            %li.list-group-item
+              %strong Key Z:
+              %span Value Z
+    .col-md-6
+      .card.mb-3
+        .card-header Section 4
+        .card-body
+          %ul.list-group.list-group-flush
+            %li.list-group-item
+              %strong Key α:
+              %span Value α
+            %li.list-group-item
+              %strong Key β:
+              %span Value β
+            %li.list-group-item
+              %strong Key γ:
+              %span Value γ

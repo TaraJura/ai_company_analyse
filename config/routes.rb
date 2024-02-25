@@ -1,9 +1,10 @@
 Rails.application.routes.draw do
-  devise_for :users
-  get "up" => "rails/health#show", as: :rails_health_check
-
-  # Defines the root path route ("/")
   root "company#index"
+
+  devise_for :users, controllers: {
+    sessions: 'users/sessions',
+    registrations: 'users/registrations'
+  }
 
   namespace :company do
     get 'index'
@@ -12,5 +13,6 @@ Rails.application.routes.draw do
 
   namespace :extension do
     post 'receiver'
+    get 'index'
   end
 end
