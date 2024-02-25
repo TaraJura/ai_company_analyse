@@ -6,6 +6,10 @@ class ExtensionController < ApplicationController
   def index
     @extension_client = current_user.client
 
+    if @extension_client.nil?
+      redirect_to root_path, alert: "You don't have access to the extension, please contact support"
+    end
+
   end
 
   def receiver
