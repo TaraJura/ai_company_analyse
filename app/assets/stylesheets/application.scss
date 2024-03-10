@@ -11,4 +11,10 @@
 .nav-link.active {
     font-weight: bold;
     color: #ff0000; /* Adjust as needed */
-  }
+}
+
+
+body, html {
+    overflow-x: hidden;
+}
+

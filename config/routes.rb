@@ -18,5 +18,6 @@ Rails.application.routes.draw do
 
   namespace :verification do
     get 'index'
+    post 'receive_verification'
   end
 end

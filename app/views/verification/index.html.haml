@@ -1,1 +1,82 @@
-= 'Verification'
+.container-fluid.mt-5
+  .row.justify-content-center
+    .col-md-6.text-center
+      %video#video{width: "100%", height: "auto", autoplay: true, playsinline: true}
+      %br
+      %button#capture-btn.btn.btn-primary Verify
+      %button#switch-camera-btn.btn.btn-secondary Switch Camera
+      %canvas#canvas{style: "display: none;"}
+
+      = form_with(url: verification_receive_verification_path, method: :post, local: true, id: 'image-upload-form') do |form|
+        = form.hidden_field :image_data, id: 'image-data' # Ensure this matches the parameter expected in your controller
+.row.justify-content-center.mt-3
+  .col-md-8
+    %h1.text-center Captured Images
+
+    %table.table.table-striped
+      %thead
+        %tr
+          %th Image Preview
+          %th Actions
+      %tbody
+        - @verifications.each do |verification|
+          - if verification.image.attached?
+            %tr
+              %td= image_tag url_for(verification.image), width: '100'
+              %td= link_to 'Download', rails_blob_path(verification.image, disposition: 'attachment'), class: 'btn btn-primary'
+:javascript
+  const video = document.getElementById('video');
+  const captureBtn = document.getElementById('capture-btn');
+  const switchCameraBtn = document.getElementById('switch-camera-btn');
+  const canvas = document.getElementById('canvas');
+  const imageData = document.getElementById('image-data');
+  const imageUploadForm = document.getElementById('image-upload-form'); // Form reference for submitting
+
+  let currentCamera = 'environment'; // Start with the front-facing camera
+  let stream = null;
+
+  async function startCamera(facingMode) {
+    const constraints = {
+      video: {
+        facingMode: facingMode
+      }
+    };
+
+    try {
+      stream = await navigator.mediaDevices.getUserMedia(constraints);
+      video.srcObject = stream;
+      video.setAttribute('playsinline', true); // Required for iOS to play inline
+      video.play();
+    } catch (error) {
+      console.error('Error accessing webcam:', error);
+    }
+  }
+
+  async function switchCamera() {
+    if (stream) {
+      stream.getTracks().forEach(track => track.stop());
+    }
+
+    if (currentCamera === 'environment') {
+      currentCamera = 'user'; // Switch to the back camera
+    } else {
+      currentCamera = 'environment'; // Switch to the front camera
+    }
+    await startCamera(currentCamera);
+  }
+
+  switchCameraBtn.addEventListener('click', switchCamera);
+
+  captureBtn.addEventListener('click', () => {
+    canvas.width = video.videoWidth;
+    canvas.height = video.videoHeight;
+    canvas.getContext('2d').drawImage(video, 0, 0);
+    const dataURL = canvas.toDataURL('image/png');
+    imageData.value = dataURL;
+
+    // Automatically submit the form with the image data
+    imageUploadForm.submit();
+  });
+
+  // Start with the front-facing camera
+  startCamera(currentCamera);

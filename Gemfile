@@ -20,6 +20,7 @@ gem 'typhoeus'
 gem 'rexml'
 gem 'rack-cors'
 gem 'ruby-openai'
+gem 'image_processing'
 
 group :development do
   gem "web-console"
