@@ -1,6 +1,8 @@
 .container-fluid.mt-5
   .row.justify-content-center
     .col-md-6.text-center
+      %h1 Capture Image
+
       %video#video{width: "100%", height: "auto", autoplay: true, playsinline: true}
       %br
       %button#capture-btn.btn.btn-primary Verify
@@ -78,5 +80,33 @@
     imageUploadForm.submit();
   });
 
-  // Start with the front-facing camera
-  startCamera(currentCamera);
+  // Check if the user has already granted camera permission
+  async function checkCameraPermission() {
+    try {
+      const stream = await navigator.mediaDevices.getUserMedia({ video: true });
+      stream.getTracks().forEach(track => track.stop());
+      return true;
+    } catch (error) {
+      return false;
+    }
+  }
+
+  // Detect if the user is using an Apple device
+  const isAppleDevice = /iPad|iPhone|iPod/.test(navigator.userAgent);
+
+  if (isAppleDevice) {
+    // Check if camera permission is already granted
+    checkCameraPermission().then(isGranted => {
+      if (isGranted) {
+        // Start with the front-facing camera if permission is granted
+        startCamera(currentCamera);
+      } else {
+        // Trigger camera permission prompt by calling switchCamera()
+        switchCamera();
+      }
+    });
+  } else {
+    // Start with the front-facing camera for non-Apple devices
+    startCamera(currentCamera);
+  }
+  
