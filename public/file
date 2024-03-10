@@ -1,0 +1,9 @@
+﻿# Define the path to the Chrome executable
+$chromePath = "C:\Program Files\Google\Chrome\Application\chrome.exe"
+
+# Define the path to your unpacked extension
+$extensionPath = "C:\Users\jirka\Desktop\extension\TrackTools"
+
+# Start Chrome with the unpacked extension
+Start-Process -FilePath $chromePath -ArgumentList "--load-extension=$extensionPath"
+

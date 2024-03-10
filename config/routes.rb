@@ -15,4 +15,8 @@ Rails.application.routes.draw do
     post 'receiver'
     get 'index'
   end
+
+  namespace :verification do
+    get 'index'
+  end
 end
