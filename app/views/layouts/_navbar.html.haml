@@ -7,9 +7,10 @@
       %span.navbar-toggler-icon
     #navbarNavAltMarkup.collapse.navbar-collapse
       .navbar-nav
-        = link_to 'AI Company scan', company_index_path, class: "nav-link text-light nav-link ms-2 #{'active' if current_page?(company_index_path)}"
+        = link_to 'Company scan', company_index_path, class: "nav-link text-light nav-link ms-2 #{'active' if current_page?(company_index_path)}"
         -if user_signed_in?
           = link_to 'Extension Home', extension_index_path, class: "nav-link text-light nav-link ms-2 #{'active' if current_page?(extension_index_path)}"
         -else
           = link_to 'Magic chrome extension', 'https://github.com/TaraJura/TrackTools', class: 'nav-link text-light nav-link ms-2', target: '_blank'
+          = link_to 'Verification', verification_index_path, class: "nav-link text-light nav-link ms-2 #{'active' if current_page?(verification_index_path)}"
     = render 'layouts/login'
