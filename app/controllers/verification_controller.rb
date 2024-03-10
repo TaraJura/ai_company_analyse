@@ -2,7 +2,7 @@
     skip_before_action :verify_authenticity_token
 
     def index
-      @verifications = Verification.all
+      puts 'index'
     end
 
     def receive_verification

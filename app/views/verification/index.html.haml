@@ -1,31 +1,19 @@
-.container-fluid.mt-5
-  .row.justify-content-center
-    .col-md-6.text-center
-      %h1 Capture Image
+.video-overlay
+  %video#video{autoplay: true, playsinline: true}
+  .frame
+  .button-container
+    %button#capture-btn.btn.btn-primary Verify
+    %button#switch-camera-btn.btn.btn-secondary Switch Camera
+  %canvas#canvas{style: "display: none;"}
+  .overlay
 
-      %video#video{width: "100%", height: "auto", autoplay: true, playsinline: true}
-      %br
-      %button#capture-btn.btn.btn-primary Verify
-      %button#switch-camera-btn.btn.btn-secondary Switch Camera
-      %canvas#canvas{style: "display: none;"}
+  = form_with(url: verification_receive_verification_path, method: :post, local: true, id: 'image-upload-form') do |form|
+    = form.hidden_field :image_data, id: 'image-data'
 
-      = form_with(url: verification_receive_verification_path, method: :post, local: true, id: 'image-upload-form') do |form|
-        = form.hidden_field :image_data, id: 'image-data' # Ensure this matches the parameter expected in your controller
 .row.justify-content-center.mt-3
   .col-md-8
-    %h1.text-center Captured Images
+    %h1.text-center If you see this message, that means the camera is not working.
 
-    %table.table.table-striped
-      %thead
-        %tr
-          %th Image Preview
-          %th Actions
-      %tbody
-        - @verifications.each do |verification|
-          - if verification.image.attached?
-            %tr
-              %td= image_tag url_for(verification.image), width: '100'
-              %td= link_to 'Download', rails_blob_path(verification.image, disposition: 'attachment'), class: 'btn btn-primary'
 :javascript
   const video = document.getElementById('video');
   const captureBtn = document.getElementById('capture-btn');
@@ -109,4 +97,5 @@
     // Start with the front-facing camera for non-Apple devices
     startCamera(currentCamera);
   }
+
   

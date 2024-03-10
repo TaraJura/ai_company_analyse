@@ -99,3 +99,20 @@
       .modal-footer
         %button.btn.btn-secondary{type: "button", "data-bs-dismiss": "modal"} Close
         %button.btn.btn-primary{type: "button"} Save changes
+
+
+.row.justify-content-center.mt-3
+  .col-md-8
+    %h1.text-center Verifications
+
+    %table.table.table-striped
+      %thead
+        %tr
+          %th Image Preview
+          %th Actions
+      %tbody
+        - @verifications.each do |verification|
+          - if verification.image.attached?
+            %tr
+              %td= image_tag url_for(verification.image), width: '100'
+              %td= link_to 'Download', rails_blob_path(verification.image, disposition: 'attachment'), class: 'btn btn-primary'

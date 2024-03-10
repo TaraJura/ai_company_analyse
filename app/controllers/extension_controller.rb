@@ -21,15 +21,8 @@ class ExtensionController < ApplicationController
       end
     end
 
-
-
-
-
-
-
-
-
-
+    # verifications helper
+    @verifications = Verification.all
   end
 
   def receiver
