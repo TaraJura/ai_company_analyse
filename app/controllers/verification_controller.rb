@@ -18,7 +18,6 @@
         image_tempfile.write(decoded_image)
         image_tempfile.rewind
 
-        # Assuming you have a model called `Verification` with an image attachment
         @verification = Verification.new
         @verification.image.attach(io: image_tempfile, filename: "verification.png")
 
