@@ -20,22 +20,24 @@
   const switchCameraBtn = document.getElementById('switch-camera-btn');
   const canvas = document.getElementById('canvas');
   const imageData = document.getElementById('image-data');
-  const imageUploadForm = document.getElementById('image-upload-form'); // Form reference for submitting
+  const imageUploadForm = document.getElementById('image-upload-form');
 
-  let currentCamera = 'environment'; // Start with the front-facing camera
+  let currentCamera = 'environment';
   let stream = null;
 
   async function startCamera(facingMode) {
     const constraints = {
       video: {
-        facingMode: facingMode
+        facingMode: facingMode,
+        width: { ideal: 4096 },
+        height: { ideal: 2160 }
       }
     };
 
     try {
       stream = await navigator.mediaDevices.getUserMedia(constraints);
       video.srcObject = stream;
-      video.setAttribute('playsinline', true); // Required for iOS to play inline
+      video.setAttribute('playsinline', true);
       video.play();
     } catch (error) {
       console.error('Error accessing webcam:', error);
@@ -48,9 +50,9 @@
     }
 
     if (currentCamera === 'environment') {
-      currentCamera = 'user'; // Switch to the back camera
+      currentCamera = 'user';
     } else {
-      currentCamera = 'environment'; // Switch to the front camera
+      currentCamera = 'environment';
     }
     await startCamera(currentCamera);
   }
@@ -60,11 +62,11 @@
   captureBtn.addEventListener('click', () => {
     canvas.width = video.videoWidth;
     canvas.height = video.videoHeight;
-    canvas.getContext('2d').drawImage(video, 0, 0);
-    const dataURL = canvas.toDataURL('image/png');
+    const context = canvas.getContext('2d');
+    context.drawImage(video, 0, 0, canvas.width, canvas.height);
+    const dataURL = canvas.toDataURL('image/jpeg', 0.9);
     imageData.value = dataURL;
 
-    // Automatically submit the form with the image data
     imageUploadForm.submit();
   });
 
@@ -97,5 +99,3 @@
     // Start with the front-facing camera for non-Apple devices
     startCamera(currentCamera);
   }
-
-  
