@@ -21,6 +21,8 @@ gem 'rexml'
 gem 'rack-cors'
 gem 'ruby-openai'
 gem 'image_processing'
+gem 'rtesseract'
+
 
 group :development do
   gem "web-console"
