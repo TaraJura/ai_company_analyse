@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root "company#index"
+  root "verification#index"
 
   devise_for :users, controllers: {
     sessions: 'users/sessions',
@@ -20,6 +20,5 @@ Rails.application.routes.draw do
     get 'index'
     post 'receive_verification'
     get 'mobile'
-
   end
 end

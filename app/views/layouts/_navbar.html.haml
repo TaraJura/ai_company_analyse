@@ -1,16 +1,14 @@
 %nav.navbar.navbar-expand-lg.bg-body-tertiary.bg-dark.sticky-top{ 'data-bs-theme' => "dark" }
   .container-fluid
-    = link_to '#', class: 'navbar-brand me-5', data: { turbo: false } do
+    = link_to root_path, class: 'navbar-brand me-5', data: { turbo: false } do
       %h2.text-light
         = 'TechTools'
     %button.navbar-toggler{"aria-controls" => "navbarNavAltMarkup", "aria-expanded" => "false", "aria-label" => "Toggle navigation", "data-bs-target" => "#navbarNavAltMarkup", "data-bs-toggle" => "collapse", :type => "button"}
       %span.navbar-toggler-icon
     #navbarNavAltMarkup.collapse.navbar-collapse
       .navbar-nav
-        = link_to 'Company scan', company_index_path, class: "nav-link text-light nav-link ms-2 #{'active' if current_page?(company_index_path)}"
+        = link_to 'Verification', verification_index_path, class: "nav-link text-light nav-link ms-2 #{'active' if current_page?(verification_index_path)}"
         -if user_signed_in?
           = link_to 'Extension Home', extension_index_path, class: "nav-link text-light nav-link ms-2 #{'active' if current_page?(extension_index_path)}"
-        -else
-          = link_to 'Magic chrome extension', 'https://github.com/TaraJura/TrackTools', class: 'nav-link text-light nav-link ms-2', target: '_blank'
           = link_to 'Verification', verification_index_path, class: "nav-link text-light nav-link ms-2 #{'active' if current_page?(verification_index_path)}"
     = render 'layouts/login'
