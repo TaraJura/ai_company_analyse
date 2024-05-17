@@ -8,11 +8,3 @@ default: &default
 development:
   <<: *default
   database: techtools_development
-
-test:
-  <<: *default
-  database: techtools_test
-
-production:
-  <<: *default
-  database: techtools_production

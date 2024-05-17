@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_03_10_205616) do
+ActiveRecord::Schema[7.1].define(version: 2024_05_17_222514) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -52,6 +52,11 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_10_205616) do
     t.string "ico"
     t.text "ares_data"
     t.text "ai_analysed_data"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "customers", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

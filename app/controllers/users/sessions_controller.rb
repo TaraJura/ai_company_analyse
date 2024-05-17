@@ -18,9 +18,9 @@ class Users::SessionsController < Devise::SessionsController
   #   super
   # end
 
-  protected
+  # protected
 
-  def after_sign_in_path_for(resource)
-    extension_index_path
-  end
+  # def after_sign_in_path_for(resource)
+  #   extension_index_path
+  # end
 end
