@@ -1,8 +1,0 @@
-.toast{"aria-atomic" => "true", "aria-live" => "assertive", :role => "alert"}
-  .toast-header
-    %img.rounded.me-2{:alt => "...", :src => "..."}/
-    %strong.me-auto Bootstrap
-    %small 11 mins ago
-    %button.btn-close{"aria-label" => "Close", "data-bs-dismiss" => "toast", :type => "button"}
-  .toast-body
-    Hello, world! This is a toast message.

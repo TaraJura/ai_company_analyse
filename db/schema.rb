@@ -42,36 +42,9 @@ ActiveRecord::Schema[7.1].define(version: 2024_05_17_222514) do
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
   end
 
-  create_table "clients", force: :cascade do |t|
-    t.string "token_identifier"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "companies", force: :cascade do |t|
-    t.string "ico"
-    t.text "ares_data"
-    t.text "ai_analysed_data"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "customers", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-  end
-
-  create_table "extension_data", force: :cascade do |t|
-    t.json "data"
-    t.string "url_send_from"
-    t.bigint "client_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.string "battery_level"
-    t.boolean "is_charging"
-    t.string "user_agent"
-    t.inet "ip_address"
-    t.index ["client_id"], name: "index_extension_data_on_client_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -82,18 +55,10 @@ ActiveRecord::Schema[7.1].define(version: 2024_05_17_222514) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "extension_user_id"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  create_table "verifications", force: :cascade do |t|
-    t.string "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
-  add_foreign_key "extension_data", "clients"
 end

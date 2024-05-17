@@ -3,7 +3,7 @@ source "https://rubygems.org"
 ruby "3.3.1"
 gem "rails"
 gem "sprockets-rails"
-gem 'bootstrap', '~> 5.2.2'
+gem 'bootstrap'
 gem "pg"
 gem "puma"
 gem "importmap-rails"
@@ -22,6 +22,7 @@ gem 'rack-cors'
 gem 'ruby-openai'
 gem 'image_processing'
 gem 'rtesseract'
+gem 'sassc-rails'
 
 
 group :development do
