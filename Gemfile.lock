@@ -80,7 +80,6 @@ GEM
     base64 (0.2.0)
     bcrypt (3.1.20)
     bigdecimal (3.1.8)
-    bindex (0.8.1)
     bootsnap (1.18.3)
       msgpack (~> 1.2)
     bootstrap (5.3.3)
@@ -91,9 +90,6 @@ GEM
     connection_pool (2.4.1)
     crass (1.0.6)
     date (3.3.4)
-    debug (1.9.2)
-      irb (~> 1.10)
-      reline (>= 0.3.8)
     devise (4.9.4)
       bcrypt (~> 3.0)
       orm_adapter (~> 0.1)
@@ -276,11 +272,6 @@ GEM
     uri (0.13.0)
     warden (1.2.9)
       rack (>= 2.0.9)
-    web-console (4.2.1)
-      actionview (>= 6.0.0)
-      activemodel (>= 6.0.0)
-      bindex (>= 0.4.0)
-      railties (>= 6.0.0)
     webrick (1.8.1)
     websocket-driver (0.7.6)
       websocket-extensions (>= 0.1.0)
@@ -293,7 +284,6 @@ PLATFORMS
 DEPENDENCIES
   bootsnap
   bootstrap
-  debug
   devise
   haml
   html2haml
@@ -314,7 +304,6 @@ DEPENDENCIES
   turbo-rails
   typhoeus
   tzinfo-data
-  web-console
 
 RUBY VERSION
    ruby 3.3.1p55

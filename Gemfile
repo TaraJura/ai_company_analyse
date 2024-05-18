@@ -23,9 +23,4 @@ gem 'ruby-openai'
 gem 'image_processing'
 gem 'rtesseract'
 gem 'sassc-rails'
-
-
-group :development do
-  gem "web-console"
-  gem "debug", platforms: %i[ mri windows ]
-end
+# gem "web-console"
