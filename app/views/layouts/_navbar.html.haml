@@ -5,8 +5,4 @@
         = 'TechTools'
     %button.navbar-toggler{"aria-controls" => "navbarNavAltMarkup", "aria-expanded" => "false", "aria-label" => "Toggle navigation", "data-bs-target" => "#navbarNavAltMarkup", "data-bs-toggle" => "collapse", :type => "button"}
       %span.navbar-toggler-icon
-    - if user_signed_in?
-      #navbarNavAltMarkup.collapse.navbar-collapse
-        .navbar-nav
-          = link_to 'placeholder', root_path, class: "nav-link text-light nav-link ms-2"
     = render 'layouts/login'

@@ -1,10 +1,14 @@
 default: &default
   adapter: postgresql
-  encoding: utf8
+  encoding: unicode
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   username: novakj
-  password: password
-
+  password: your_password  # if you set one
+  
 development:
   <<: *default
   database: techtools_development
+
+test:
+  <<: *default
+  database: techtools_test
