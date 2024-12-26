@@ -23,4 +23,3 @@ gem 'ruby-openai'
 gem 'image_processing'
 gem 'rtesseract'
 gem 'sassc-rails'
-# gem "web-console"
