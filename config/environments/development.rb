@@ -77,6 +77,6 @@ Rails.application.configure do
 
   # Custom additions
   config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
-  config.hosts << "techtools.cz"
+  config.hosts << "app.techtools.cz"
   # config.web_console.permissions = '192.168.0.0/16'
 end
