@@ -3,7 +3,7 @@ default: &default
   encoding: unicode
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   username: novakj
-  password: your_password  # if you set one
+  password: your_password
   
 development:
   <<: *default
@@ -12,3 +12,12 @@ development:
 test:
   <<: *default
   database: techtools_test
+
+production:
+  adapter: postgresql
+  encoding: unicode
+  database: techtools_production
+  pool: 5
+  username: novakj
+  password: your_password
+  host: localhost
